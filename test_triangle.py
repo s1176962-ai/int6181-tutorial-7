@@ -62,6 +62,16 @@ class TestTriangle(unittest.TestCase):
             t = Triangle(a, b, c)
             self.assertFalse(t.is_valid(), msg=f"Input ({a}, {b}, {c}) contains invalid type and should return False.")
 
+    def test_perimeter_for_valid_triangles(self):
+        """Test perimeter calculation for valid triangles."""
+        self.assertEqual(Triangle(3, 4, 5).get_perimeter(), 12)
+        self.assertEqual(Triangle(5, 5, 5).get_perimeter(), 15)
+
+    def test_perimeter_for_invalid_side_lengths(self):
+        """Test invalid side lengths do not produce a perimeter."""
+        for sides in self.invalid_lengths:
+            self.assertIsNone(Triangle(*sides).get_perimeter())
+
 
 if __name__ == '__main__':
     unittest.main()

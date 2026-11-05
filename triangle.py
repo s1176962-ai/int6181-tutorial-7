@@ -61,6 +61,13 @@ class Triangle:
         area = math.sqrt(s * (s - self.a) * (s - self.b) * (s - self.c))
         return round(area, 4)
 
+    def get_perimeter(self):
+        """Calculates the perimeter, or returns None for an invalid triangle."""
+        if not self.is_valid():
+            return None
+
+        return self.a + self.b + self.c
+
 
 if __name__ == '__main__':
     try:
